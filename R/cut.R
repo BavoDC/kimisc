@@ -43,7 +43,7 @@ cut_format <- function(x, breaks, include.lowest = FALSE, right = TRUE,
   ob <- ifelse(ob, paren[[2L]], paren[[1L]])
   cb <- ifelse(cb, paren[[4L]], paren[[3L]])
 
-  formatted_breaks <- format_fun(breaks)
+  formatted_breaks <- trimws(format_fun(breaks))
   labels <- paste0(ob, head(formatted_breaks, -1L), sep, tail(formatted_breaks, -1L), cb)
   cut.default(x = x, breaks = breaks, labels = labels, include.lowest = include.lowest,
               right = right, ordered_result = ordered_result, ...)
